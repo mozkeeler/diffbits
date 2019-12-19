@@ -26,8 +26,9 @@ Given a `left` sequence of bytes and a `right` sequence of bytes (`before`/`afte
 that appear later in each set of 4 bytes). The first integer is the byte length of the `right`
 sequence of bytes. The second integer is the bit index of the first bit that differs in the inputs.
 Every integer thereafter is the difference from the previous different bit index to the next
-different bit index. Each 8-bit byte is treated as big-endian - bits that appear "earlier" in the
-byte starting from the left have a higher index than bits that appear "later" (or farther right).
+different bit index. Each 8-bit byte is treated as little-endian - bits that appear "earlier"
+(starting from the right) in the byte have a lower index than bits that appear "later". For example,
+in the byte 0b0010\_0000, the set bit has index 5.
 
 For example, consider the two byte sequences `[0xff, 0xfa]` and `[0xff, 0xf8, 0x03]`. The length of
 the `right` is 3, or `[0x00, 0x00, 0x00, 0x03]` encoded as 4 big-endian bytes. The first differing
