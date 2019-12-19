@@ -29,8 +29,8 @@ Every integer thereafter is the difference from the previous different bit index
 different bit index. Each 8-bit byte is treated as big-endian - bits that appear "earlier" in the
 byte starting from the left have a higher index than bits that appear "later" (or farther right).
 
-For example, consider the two byte sequences [0xff, 0xfa] and [0xff, 0xf8, 0x03]. The length of the
-`right` is 3, or [0x00, 0x00, 0x00, 0x03] encoded as 4 big-endian bytes. The first differing bit is
-at index 9. The next differing bit is 7 bits after that bit. The final differing bit is 1 bit after
-that. The final output is [0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x07,
-0x00, 0x00, 0x00, 0x01].
+For example, consider the two byte sequences `[0xff, 0xfa]` and `[0xff, 0xf8, 0x03]`. The length of
+the `right` is 3, or `[0x00, 0x00, 0x00, 0x03]` encoded as 4 big-endian bytes. The first differing
+bit is at index 9. The next differing bit is 7 bits after that bit. The final differing bit is 1 bit
+after that. The final output is `[0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00,
+0x07, 0x00, 0x00, 0x00, 0x01]`.
